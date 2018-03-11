@@ -1,0 +1,19 @@
+[
+  {
+    "title": "微信配置",
+    "icon": "larry-weixinguanli",
+    "spread": "true",
+    "children": [
+      {
+        "title": "微信接口设置",
+        "icon": "larry-api1",
+        "href": "html/temp.html"
+      },
+      {
+        "title": "微信支付配置",
+        "icon": "larry-iconzfb",
+        "href": "html/temp.html"
+      }
+    ]
+  }
+]
