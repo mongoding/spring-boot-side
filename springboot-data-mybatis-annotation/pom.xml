@@ -13,9 +13,10 @@
 
     <!-- Spring Boot 启动父依赖 -->
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.1.RELEASE</version>
+        <groupId>org.spring.springboot</groupId>
+        <artifactId>spring-boot-learn-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <properties>
