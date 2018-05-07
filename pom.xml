@@ -3,86 +3,138 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.mongoding</groupId>
-    <artifactId>spring-boot-side</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
-
-    <name>spring-boot-side</name>
-    <description>Demo project for Spring Boot</description>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.0.RELEASE</version>
+        <!--<version>1.5.10.RELEASE</version>-->
+        <version>2.0.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
+    <groupId>org.spring.springboot</groupId>
+    <artifactId>spring-boot-learn-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>spring-boot-learn-parent</name>
+    <description>Demo project for Spring Boot</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+
+        <spring-cloud.version>Finchley.RC1</spring-cloud.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-freemarker</artifactId>
-        </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.mybatis.spring.boot</groupId>-->
-        <!--<artifactId>mybatis-spring-boot-starter</artifactId>-->
-        <!--<version>1.3.1</version>-->
-        <!--</dependency>-->
+    <modules>
+        <module>springboot-quickstart</module>
+        <module>springboot-base</module>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <!--<dependency>-->
-        <!--<groupId>mysql</groupId>-->
-        <!--<artifactId>mysql-connector-java</artifactId>-->
-        <!--<scope>runtime</scope>-->
-        <!--</dependency>-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+        <module>springboot-cache</module>
+        <module>springboot-cache-redis</module>
+        <module>springboot-cache-with-spring</module>
+
+
+        <module>springboot-mq-kafka</module>
+        <module>springboot-mq-redis</module>
+        <module>springboot-mq-rabbitmq</module>
+
+        <module>springboot-doc</module>
+        <module>springboot-tasks</module>
+
+
+        <module>springboot-async-methods</module>
+
+        <module>springboot-config-center</module>
+        <module>springboot-data-elasticsearch</module>
+        <module>springboot-data-elasticsearch-crud</module>
+        <module>springboot-data-elasticsearch-query</module>
+        <module>springboot-data-jdbc</module>
+        <module>springboot-data-jpa</module>
+        <module>springboot-data-mybatis</module>
+        <module>springboot-data-mongodb</module>
+        <module>springboot-data-mybatis-annotation</module>
+        <module>springboot-data-mybatis-mutil-datasource</module>
+
+
+        <module>springboot-dubbo-client</module>
+        <module>springboot-dubbo-server</module>
+
+        <module>springboot-web</module>
+        <module>springboot-web-thymeleaf</module>
+        <module>springboot-web-freemarker</module>
+
+        <module>springboot-webflux-websocket</module>
+        <module>springboot-webflux-book-manage-sys</module>
+        <module>springboot-webflux-mongodb</module>
+        <module>springboot-webflux-quickstart</module>
+        <module>springboot-webflux-redis</module>
+        <module>springboot-webflux-redis-cache</module>
+        <module>springboot-webflux-restful</module>
+        <module>springboot-webflux-test</module>
+        <module>springboot-webflux-thymeleaf</module>
+        <module>springboot-webflux-thymeleaf-mongodb</module>
+
+
+        <module>springboot-with-docker</module>
+        <module>springboot-jdk</module>
+
+        <module>springboot-cap-ignite</module>
+        <module>springboot-cap-zookeeper</module>
+
+    </modules>
 
     <build>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.0.1.RELEASE</version>
             </plugin>
         </plugins>
     </build>
+
+    <dependencyManagement>
+
+        <dependencies>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>5.0.2.Final</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <repositories>
         <repository>
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
-            <url>https://repo.spring.io/libs-milestone</url>
+            <url>https://repo.spring.io/milestone</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
         </repository>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
     </repositories>
+
     <pluginRepositories>
         <pluginRepository>
             <id>spring-snapshots</id>
