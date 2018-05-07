@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <script type="text/javascript" th:src="@{https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js}"></script>
+    <link th:href="@{https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/default.css}" rel="stylesheet"/>
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+    <meta charset="UTF-8"/>
+    <title>城市列表</title>
+</head>
+
+<body>
+
+<div class="contentDiv">
+
+    <table class="table table-hover table-condensed">
+        <legend>
+            <strong>城市列表</strong>
+        </legend>
+        <thead>
+        <tr>
+            <th>城市编号</th>
+            <th>城市名称</th>
+            <th>描述</th>
+            <th>省份编号</th>
+            <th>管理</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="city : ${cityList}">
+            <th scope="row" th:text="${city.id}"></th>
+            <td><a th:href="@{/city/update/{cityId}(cityId=${city.id})}" th:text="${city.cityName}"></a></td>
+            <td th:text="${city.description}"></td>
+            <td th:text="${city.provinceId}"></td>
+            <td><a class="btn btn-danger" th:href="@{/city/delete/{cityId}(cityId=${city.id})}">删除</a></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <div><a class="btn btn-primary" href="/city/create" role="button">新增城市</a></div>
+</div>
+
+</body>
+</html>
