@@ -7,7 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by fangzhipeng on 2017/4/19.
+ * Created by mongoding on 2017/4/19.
  */
 @Component
 public class AppRunner implements CommandLineRunner {

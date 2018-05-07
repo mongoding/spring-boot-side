@@ -1,7 +1,7 @@
 package org.spring.springboot.entity;
 
 /**
- * Created by fangzhipeng on 2017/4/20.
+ * Created by mongoding on 2017/4/20.
  */
 public class Account {
     private int id;

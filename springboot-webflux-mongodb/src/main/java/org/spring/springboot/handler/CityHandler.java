@@ -40,4 +40,8 @@ public class CityHandler {
         cityRepository.deleteById(id);
         return Mono.create(cityMonoSink -> cityMonoSink.success(id));
     }
+
+    public Mono<City> getByCityName(String cityName) {
+        return cityRepository.findByCityName(cityName);
+    }
 }

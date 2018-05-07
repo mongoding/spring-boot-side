@@ -29,8 +29,8 @@
     <modules>
         <module>springboot-quickstart</module>
         <module>springboot-base</module>
+        <module>springboot-test</module>
 
-        <module>springboot-cache</module>
         <module>springboot-cache-redis</module>
         <module>springboot-cache-with-spring</module>
 
@@ -40,7 +40,8 @@
         <module>springboot-mq-rabbitmq</module>
 
         <module>springboot-doc</module>
-        <module>springboot-tasks</module>
+        <module>springboot-scheduling-tasks</module>
+        <module>springboot-scheduling-tasks-mosross</module>
 
 
         <module>springboot-async-methods</module>
@@ -65,15 +66,10 @@
         <module>springboot-web-freemarker</module>
 
         <module>springboot-webflux-websocket</module>
-        <module>springboot-webflux-book-manage-sys</module>
-        <module>springboot-webflux-mongodb</module>
         <module>springboot-webflux-quickstart</module>
-        <module>springboot-webflux-redis</module>
         <module>springboot-webflux-redis-cache</module>
-        <module>springboot-webflux-restful</module>
-        <module>springboot-webflux-test</module>
-        <module>springboot-webflux-thymeleaf</module>
-        <module>springboot-webflux-thymeleaf-mongodb</module>
+        <module>springboot-webflux-web</module>
+        <module>springboot-webflux-mongodb</module>
 
 
         <module>springboot-with-docker</module>

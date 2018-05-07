@@ -5,8 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * Spring Boot 应用启动类
- * <p>
- * Created by mongoding on 09/29/2017.
  */
 // Spring Boot 应用的标识
 @SpringBootApplication

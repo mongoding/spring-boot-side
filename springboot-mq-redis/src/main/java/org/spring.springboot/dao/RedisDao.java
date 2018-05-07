@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by fangzhipeng on 2017/4/20.
+ * Created by mongoding on 2017/4/20.
  */
 @Repository
 public class RedisDao {
