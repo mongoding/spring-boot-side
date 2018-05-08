@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.forezp</groupId>
-    <artifactId>springboot-scheduling-tasks-mosross</artifactId>
+    <artifactId>springboot-scheduling-tasks-mossrose</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>springboot-scheduling-tasks-mosross</name>
+    <name>springboot-scheduling-tasks-mossrose</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>

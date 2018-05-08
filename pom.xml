@@ -41,7 +41,7 @@
 
         <module>springboot-doc</module>
         <module>springboot-scheduling-tasks</module>
-        <module>springboot-scheduling-tasks-mosross</module>
+        <module>springboot-scheduling-tasks-mossrose</module>
 
 
         <module>springboot-async-methods</module>
@@ -64,10 +64,10 @@
         <module>springboot-web-thymeleaf</module>
         <module>springboot-web-freemarker</module>
 
-        <module>springboot-webflux-websocket</module>
         <module>springboot-webflux-quickstart</module>
-        <module>springboot-webflux-redis-cache</module>
         <module>springboot-webflux-web</module>
+        <module>springboot-webflux-websocket</module>
+        <module>springboot-webflux-redis-cache</module>
         <module>springboot-webflux-mongodb</module>
 
 
