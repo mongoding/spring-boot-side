@@ -56,9 +56,10 @@
         <module>springboot-data-mybatis-mutil-datasource</module>
 
 
-        <module>springboot-dubbo-client</module>
-        <module>springboot-dubbo-server</module>
-
+        <!--<module>springboot-dubbo-provider</module>
+        <module>springboot-dubbo-consumer</module>
+        <module>springboot-dubbo-api-sdk</module>
+-->
         <module>springboot-web</module>
         <module>springboot-web-thymeleaf</module>
         <module>springboot-web-freemarker</module>
