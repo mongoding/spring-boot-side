@@ -9,7 +9,7 @@ import java.io.Serializable;
  * <p>
  * Created by mongoding on 03/05/2017.
  */
-@Document(indexName = "cityindex", type = "city")
+@Document(indexName = "province", type = "city")
 public class City implements Serializable {
 
     private static final long serialVersionUID = -1L;
@@ -20,19 +20,19 @@ public class City implements Serializable {
     private Long id;
 
     /**
-     * 省份编号
-     */
-    private Long provinceid;
-
-    /**
      * 城市名称
      */
-    private String cityname;
+    private String name;
 
     /**
      * 描述
      */
     private String description;
+
+    /**
+     * 城市评分
+     */
+    private Integer score;
 
     public Long getId() {
         return id;
@@ -42,20 +42,12 @@ public class City implements Serializable {
         this.id = id;
     }
 
-    public Long getProvinceid() {
-        return provinceid;
+    public String getName() {
+        return name;
     }
 
-    public void setProvinceid(Long provinceid) {
-        this.provinceid = provinceid;
-    }
-
-    public String getCityname() {
-        return cityname;
-    }
-
-    public void setCityname(String cityname) {
-        this.cityname = cityname;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -64,5 +56,13 @@ public class City implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
     }
 }

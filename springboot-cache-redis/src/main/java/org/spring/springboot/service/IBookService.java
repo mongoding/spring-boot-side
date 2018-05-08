@@ -1,6 +1,7 @@
 package org.spring.springboot.service;
 
-import org.spring.springboot.entity.Book;
+
+import org.spring.springboot.domain.Book;
 
 import java.util.List;
 

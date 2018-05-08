@@ -1,6 +1,7 @@
 package org.spring.springboot.service;
 
-import org.spring.springboot.entity.User;
+
+import org.spring.springboot.domain.User;
 
 import java.util.List;
 

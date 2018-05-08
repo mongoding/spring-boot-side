@@ -25,7 +25,7 @@ public class AccountController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Account getAccountById(@PathVariable("id") int id) {
-        return accountDao.findOne(id);
+        return accountDao.getOne(id);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)

@@ -1,6 +1,6 @@
 package org.spring.springboot.commond;
 
-import org.spring.springboot.entity.User;
+import org.spring.springboot.domain.User;
 import org.spring.springboot.service.INetPageDownService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

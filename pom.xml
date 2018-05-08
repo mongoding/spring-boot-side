@@ -48,8 +48,6 @@
 
         <module>springboot-config-center</module>
         <module>springboot-data-elasticsearch</module>
-        <module>springboot-data-elasticsearch-crud</module>
-        <module>springboot-data-elasticsearch-query</module>
         <module>springboot-data-jdbc</module>
         <module>springboot-data-jpa</module>
         <module>springboot-data-mybatis</module>
