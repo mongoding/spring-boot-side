@@ -15,8 +15,9 @@
 - springboot-web-freemarker：web 项目整合freemarker（页面模板技术）
 - springboot-test:与常见测试技术的整合例子
 - springboot-async-methods：整合Spring异步方法的例子
-- springboot-cache-redis：与redis 的整合例子
 - springboot-cache-with-spring：与Spring 缓存的整合例子
+- springboot-cache-redis：与redis 的整合例子
+
 
 ----------------------
 
@@ -46,14 +47,14 @@
 
 ### 资源地址
 
-github 地址：https://github.com/mongoding/spring-boot-side
+#### github 地址：https://github.com/mongoding/spring-boot-side
 
-spring boot 脑图地址：https://github.com/mongoding/brain-map-collection/tree/master/%E5%AD%A6%E4%B9%A0
-博客地址：https://mongoding.github.io/
+#### spring boot 脑图地址：https://github.com/mongoding/brain-map-collection/tree/master/%E5%AD%A6%E4%B9%A0
+#### 博客地址：https://mongoding.github.io/
 
 ### 推荐学习地址：
-spring cloud: http://www.spring4all.com/
-spring boot : https://gitee.com/hengboy/spring-boot-chapter
+#### spring cloud: http://www.spring4all.com/
+#### spring boot : https://gitee.com/hengboy/spring-boot-chapter
 
 
 
