@@ -9,7 +9,7 @@ public class UserController {
     @RequestMapping("/name")
     public Object getUser() {
 
-        return "dingzhenhao";
+        return "mongoding";
     }
 
 
