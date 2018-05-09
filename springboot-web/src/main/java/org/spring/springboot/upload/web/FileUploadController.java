@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
  */
 
 @Controller
+@RequestMapping("/files")
 public class FileUploadController {
 
     private final StorageService storageService;
@@ -44,7 +45,7 @@ public class FileUploadController {
         return "uploadForm";
     }
 
-    @GetMapping("/files/{filename:.+}")
+    @GetMapping("/{filename:.+}")
     @ResponseBody
     public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
 
