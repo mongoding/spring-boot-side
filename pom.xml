@@ -40,8 +40,8 @@
         <module>springboot-mq-rabbitmq</module>
 
         <module>springboot-doc</module>
-        <module>springboot-scheduling-tasks</module>
-        <module>springboot-scheduling-tasks-mossrose</module>
+        <module>springboot-scheduling-task</module>
+        <module>springboot-scheduling-task-mossrose</module>
 
 
         <module>springboot-async-methods</module>
