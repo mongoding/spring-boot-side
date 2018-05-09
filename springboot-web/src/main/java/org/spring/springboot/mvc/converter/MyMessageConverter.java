@@ -15,7 +15,7 @@ import java.nio.charset.Charset;
 
 /**
  * 继承AbstractHttpMessageConverter 接口来实现自定义的HttpMessageConverter
- * Author: 王俊超
+ * Author: mongoding
  * Date: 2017-07-13 07:44
  * All Rights Reserved !!!
  */

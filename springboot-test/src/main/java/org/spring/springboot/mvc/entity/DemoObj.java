@@ -2,7 +2,7 @@ package org.spring.springboot.mvc.entity;
 
 
 /**
- * Author: 王俊超
+ * Author: mongoding
  * Date: 2017-07-11 22:07
  * All Rights Reserved !!!
  */

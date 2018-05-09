@@ -31,7 +31,7 @@ public class RedisConfig extends CachingConfigurerSupport {
     @Value("${spring.redis.port}")
     private int port;
 
-    @Value("${spring.redis.timeout}")
+    @Value("${spring.redis.timeout.seconds}")
     private int timeout;
 
     @Value("${spring.redis.password}")
@@ -39,11 +39,10 @@ public class RedisConfig extends CachingConfigurerSupport {
 
     @Value("${spring.redis.database}")
     private int database;
-
-    @Value("${spring.redis.pool.max-idle}")
+    @Value("${spring.redis.jedis.pool.max-idle}")
     private int maxIdle;
 
-    @Value("${spring.redis.pool.min-idle}")
+    @Value("${spring.redis.jedis.pool.min-idle}")
     private int minIdle;
 
     /**
@@ -103,7 +102,7 @@ public class RedisConfig extends CachingConfigurerSupport {
         JedisConnectionFactory factory = new JedisConnectionFactory();
         factory.setHostName(host);
         factory.setPort(port);
-        factory.setPassword(password);
+        //factory.setPassword(password);
         //存储的库
         factory.setDatabase(database);
         //设置连接超时时间

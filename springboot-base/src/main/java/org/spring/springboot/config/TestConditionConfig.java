@@ -40,15 +40,21 @@ public class TestConditionConfig {
     @Conditional(MyConditionA.class)
     public Object testCondition1() {
         System.out.println("MyConditionA 返回ture了");
-        LOGGER.info("TestConditionConfig.testCondition1 running");
         return new Object();
+
     }
 
+    /**
+     * 存在相同bean 就不在处理了
+     *
+     * @return
+     */
     @Bean("obj2")
     @ConditionalOnClass(MyConditionA.class)
     public Object testCondition2() {
         System.out.println("ConditionalOnClass测试是否存在某个类");
         return new Object();
+
     }
 
     @Bean("obj3")
@@ -59,49 +65,49 @@ public class TestConditionConfig {
     }
 
     @Bean("obj4")
-    @ConditionalOnMissingBean(MyConditionA.class)
+    @ConditionalOnMissingBean(TestConditionConfig.class)
     public Object testCondition4() {
         System.out.println("ConditionalOnMissingBean测试时否缺失某个bean");
         return new Object();
     }
 
     @Bean("obj5")
-    @ConditionalOnBean(MyConditionA.class)
+    @ConditionalOnBean(TestConditionConfig.class)
     public Object testCondition5() {
         System.out.println("ConditionalOnBean测试是否存在某个bean");
         return new Object();
     }
 
-    @Bean("obj1")
+    @Bean("obj6")
     @ConditionalOnCloudPlatform(CloudPlatform.SAP)
     public Object testCondition6() {
         System.out.println("测试ConditionalOnCloudPlatform");
         return new Object();
     }
 
-    @Bean("obj1")
+    @Bean("obj7")
     @ConditionalOnExpression("true")
     public Object testCondition7() {
         System.out.println("测试ConditionalOnExpression");
         return new Object();
     }
 
-    @Bean("obj1")
-    @ConditionalOnJava(value = JavaVersion.NINE)
+    @Bean("obj8")
+    @ConditionalOnJava(value = JavaVersion.EIGHT)
     public Object testCondition8() {
-        System.out.println("测试ConditionalOnJava");
+        System.out.println("测试ConditionalOnJava,我的最低版本：" + JavaVersion.EIGHT);
         return new Object();
     }
 
-    @Bean("obj1")
+    @Bean("obj9")
     @ConditionalOnWebApplication()
     public Object testCondition9() {
         System.out.println("测试ConditionalOnWebApplication");
         return new Object();
     }
 
-    @Bean("obj1")
-    @ConditionalOnProperty("cache.switch")
+    @Bean("obj10")
+    @ConditionalOnProperty(name = "cache.switch", havingValue ="true")
     public Object testCondition10() {
         System.out.println("测试ConditionalOnProperty");
         return new Object();

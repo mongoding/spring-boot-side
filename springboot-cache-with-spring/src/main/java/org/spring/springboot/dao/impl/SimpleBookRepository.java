@@ -1,5 +1,7 @@
 package org.spring.springboot.dao.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.spring.springboot.dao.BookRepository;
 import org.spring.springboot.entity.Book;
 import org.springframework.cache.annotation.Cacheable;
@@ -11,10 +13,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class SimpleBookRepository implements BookRepository {
 
+    private static final Logger logger = LoggerFactory.getLogger(SimpleBookRepository.class);
     @Override
-    @Cacheable("books")
+    @Cacheable("cacheDemo")
     public Book getByIsbn(String isbn) {
         simulateSlowService();
+        logger.info("我在取数据");
         return new Book(isbn, "Some book");
     }
 

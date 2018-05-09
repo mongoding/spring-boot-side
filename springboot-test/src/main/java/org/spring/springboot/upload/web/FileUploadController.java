@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
  */
 
 @Controller
+@RequestMapping("/files")
 public class FileUploadController {
 
     private final StorageService storageService;

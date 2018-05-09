@@ -17,6 +17,7 @@ public class CityServiceImpl implements CityService {
     @Autowired
     private CityDao cityDao;
 
+    @Override
     public City findCityByName(String cityName) {
         return cityDao.findByName(cityName);
     }

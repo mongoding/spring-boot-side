@@ -23,11 +23,12 @@ public class UserController {
         user.setGithubUrl("https://github.com/mongoding");
         return user;
     }
-    /*@RequestMapping("/user/pro")
+
+    @RequestMapping("/user/pro")
     public Object getUserPropertis() {
 
         return userProperties;
-    }*/
+    }
 
 
 }
