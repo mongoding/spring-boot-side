@@ -1,5 +1,12 @@
 # spring boot 学习教程 spring-boot-side
 
+### 技术背景
+
+- spring 体系庞大，配置复杂，Spring boot 简化了各种整合配置
+- Spring cloud 大行其道，是以Spring boot 为基础的
+- Spring 官网主推的技术 https://spring.io/
+
+
 ### 学习路线（建议按照以下顺序学习）
 
 
@@ -56,6 +63,59 @@
 #### spring cloud: http://www.spring4all.com/
 #### spring boot : https://gitee.com/hengboy/spring-boot-chapter
 
+### 最常见基础包
+
+```
+<!--自动部署包-->
+<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+</dependency>
+```
+
+```
+<!--web 项目包-->
+<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+```
+
+```
+<!--Spring boot 基础包-->
+<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+</dependency>
+```
+
+```
+<!--测试包-->
+<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+</dependency>
+```
+
+```
+<!--健康监控管理包-->
+<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
+
+
+```
+<parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.1.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+</parent>
+```
 
 
 
