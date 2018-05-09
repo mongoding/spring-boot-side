@@ -62,6 +62,12 @@
 ### 推荐学习地址：
 #### spring cloud: http://www.spring4all.com/
 #### spring boot : https://gitee.com/hengboy/spring-boot-chapter
+#### Spring Boot：https://github.com/dyc87112/SpringBoot-Learning
+
+### 官方文档翻译
+#### https://github.com/qibaoguang/Spring-Boot-Reference-Guide
+#### https://legacy.gitbook.com/book/qbgbook/spring-boot-reference-guide-zh/details
+
 
 ### 最常见基础包
 
