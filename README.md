@@ -7,8 +7,9 @@
 - Spring 官网主推的技术 https://spring.io/
 
 ### 版本信息
-jdk：jdk8
-Spring boot ：Spring boot 2.0
+
+- jdk：jdk8
+- Spring boot ：Spring boot 2.0
 
 ### 学习路线（建议按照以下顺序学习）
 
