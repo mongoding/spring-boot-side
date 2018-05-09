@@ -6,6 +6,9 @@
 - Spring cloud 大行其道，是以Spring boot 为基础的
 - Spring 官网主推的技术 https://spring.io/
 
+### 版本信息
+jdk：jdk8
+Spring boot ：Spring boot 2.0
 
 ### 学习路线（建议按照以下顺序学习）
 
