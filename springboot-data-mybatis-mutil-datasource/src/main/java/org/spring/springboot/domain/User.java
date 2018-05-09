@@ -8,12 +8,12 @@ package org.spring.springboot.domain;
 public class User {
 
     /**
-     * 城市编号
+     *
      */
     private Long id;
 
     /**
-     * 城市名称
+     * 用户名
      */
     private String userName;
 

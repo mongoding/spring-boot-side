@@ -7,13 +7,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
-public class SpringbootHttpApplication {
+public class SpringbootWebApplication {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(SpringbootHttpApplication.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SpringbootWebApplication.class);
 
 
     public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(SpringbootHttpApplication.class, args);
+        ApplicationContext ctx = SpringApplication.run(SpringbootWebApplication.class, args);
 
 
     }

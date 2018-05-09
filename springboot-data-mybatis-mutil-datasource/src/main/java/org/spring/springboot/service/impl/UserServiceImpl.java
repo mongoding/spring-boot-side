@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findByName(String userName) {
         User user = userDao.findByName(userName);
-        City city = cityDao.findByName("温岭市");
+        City city = cityDao.findByName("北京");
         user.setCity(city);
         return user;
     }
