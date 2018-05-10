@@ -12,7 +12,16 @@
 - Spring boot ：Spring boot 2.0
 
 ### spring boot 2 变动
-- https://blog.csdn.net/yalishadaa/article/details/79400916
+- @ConditionalOnBean现在的判断条件由OR变为了AND。
+- 默认的连接池已经由Tomcat切换到了HikariCP
+- Spring Boot现在默认是使用CGLIB代理，同时包含AOP支持
+- Spring Boot 2.0 是建立在Spring Framework 5.0之上的（最低要求）。Spring 5最大的亮点就是reactive
+- 一个全新的spring-boot-starter-json starter 聚合了很多常用的json工具，可以支持对json的读写
+- 基本支持了Java 9。之所以是“基本”，是因为还没得到用户的验证。
+- TLS 配置 和 HTTP/2 支持，你现在也可以为你的MVC 或 WebFlux应用配置HTTP/2：使用server.http2.enabled。
+- @KafkaListener支持使用@SendTo
+
+- 其他参见 https://mp.weixin.qq.com/s/EWmuzsgHueHcSB0WH-3AQw
 
 ### 学习路线（建议按照以下顺序学习）
 
