@@ -76,7 +76,7 @@
 ### 最常见基础包
 
 ```
-<!--自动部署包-->
+<!--自动热部署包-->
 <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
