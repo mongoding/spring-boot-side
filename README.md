@@ -11,6 +11,9 @@
 - jdk：jdk8
 - Spring boot ：Spring boot 2.0
 
+### spring boot 2 变动
+- https://blog.csdn.net/yalishadaa/article/details/79400916
+
 ### 学习路线（建议按照以下顺序学习）
 
 
