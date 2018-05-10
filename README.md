@@ -68,7 +68,7 @@
 - springboot-dubbo-provider：与dubbo整合的例子，服务提供者（与Spring boot 2.0 整合的待发布，暂无法完成测试）
 - springboot-dubbo-consumer：与dubbo整合的例子，服务消费者（与Spring boot 2.0 整合的待发布，暂无法完成测试）
 
-### 资源地址(欢迎加星或fork)
+### 资源地址(欢迎给star或fork)
 
 #### github 地址：https://github.com/mongoding/spring-boot-side
 
