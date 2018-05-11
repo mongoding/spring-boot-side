@@ -72,8 +72,8 @@ public class IgniteConfig {
     @Bean("tcpDiscoveryMulticastIpFinder")
     public TcpDiscoveryIpFinder TcpDiscoveryMulticastIpFinder() {
         TcpDiscoveryMulticastIpFinder ipFinder = new TcpDiscoveryMulticastIpFinder();
-        String ip = iginteConfigProperties.getIp();
-        ipFinder.setMulticastGroup(ip);
+        //String ip = iginteConfigProperties.getIp();
+        // ipFinder.setMulticastGroup(ip);
         return ipFinder;
     }
 
@@ -83,7 +83,8 @@ public class IgniteConfig {
         TcpDiscoveryVmIpFinder ipFinder = new TcpDiscoveryVmIpFinder();
         // Set initial IP addresses.
         // Note that you can optionally specify a port or a port range.
-        ipFinder.setAddresses(Arrays.asList("1.2.3.4", "1.2.3.5:47500..47509"));
+        String ip = iginteConfigProperties.getIp();
+        ipFinder.setAddresses(Arrays.asList(ip));
 
         return ipFinder;
     }

@@ -14,7 +14,8 @@ public class IgniteCacheComandRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        IgniteCache<Object, Object> cache = ignite.cache("test-ignite");
+        IgniteCache<Object, Object> cache = ignite.createCache("test-ignite");
         cache.put("name", "mongoding");
+        IgniteCache<Object, Object> cache1 = ignite.cache("test-ignite");
     }
 }
