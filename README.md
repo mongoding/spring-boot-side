@@ -1,10 +1,8 @@
 # spring boot 学习教程 spring-boot-side
 
-### 技术背景
+### 说明
 
-- spring 体系庞大，配置复杂，Spring boot 简化了各种整合配置
-- Spring cloud 大行其道，是以Spring boot 为基础的
-- Spring 官网主推的技术 https://spring.io/
+#### 本实例不仅仅是为了学习Spring boot 更是为了用Spring boot 快速上手，学习服务端开发领域各种技术，如：Spring 异步，缓存，mq，webflux 等
 
 ### 版本信息
 

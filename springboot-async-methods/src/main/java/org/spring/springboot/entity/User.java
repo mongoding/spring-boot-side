@@ -1,10 +1,14 @@
 package org.spring.springboot.entity;
 
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Created by mongoding on 2017/4/19.
  */
+@Slf4j
+@Data
 @ConfigurationProperties(prefix = "org.spring.springboot.user")
 public class User {
 
@@ -30,46 +34,5 @@ public class User {
      */
     private String githubUrl;
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public String getBlogUrl() {
-        return blogUrl;
-    }
-
-    public void setBlogUrl(String blogUrl) {
-        this.blogUrl = blogUrl;
-    }
-
-    public String getGithubUrl() {
-        return githubUrl;
-    }
-
-    public void setGithubUrl(String githubUrl) {
-        this.githubUrl = githubUrl;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", mail='" + mail + '\'' +
-                ", blogUrl='" + blogUrl + '\'' +
-                ", githubUrl='" + githubUrl + '\'' +
-                '}';
-    }
 }

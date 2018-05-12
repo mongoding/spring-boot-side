@@ -1,9 +1,12 @@
 package org.spring.springboot.entity;
 
+import lombok.Data;
+
 /**
  * Created by mongoding on 2017/4/19.
  */
 
+@Data
 public class User {
 
     private int id;
@@ -28,46 +31,5 @@ public class User {
      */
     private String githubUrl;
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public String getBlogUrl() {
-        return blogUrl;
-    }
-
-    public void setBlogUrl(String blogUrl) {
-        this.blogUrl = blogUrl;
-    }
-
-    public String getGithubUrl() {
-        return githubUrl;
-    }
-
-    public void setGithubUrl(String githubUrl) {
-        this.githubUrl = githubUrl;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", mail='" + mail + '\'' +
-                ", blogUrl='" + blogUrl + '\'' +
-                ", githubUrl='" + githubUrl + '\'' +
-                '}';
-    }
 }

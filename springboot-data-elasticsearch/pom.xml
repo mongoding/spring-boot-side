@@ -17,7 +17,10 @@
     </parent>
 
     <dependencies>
-
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
         <!-- Spring Boot Elasticsearch 依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

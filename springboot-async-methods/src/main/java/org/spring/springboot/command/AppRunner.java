@@ -1,7 +1,6 @@
 package org.spring.springboot.command;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.spring.springboot.business.NetPagerLookupBusiness;
 import org.spring.springboot.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +16,9 @@ import java.util.concurrent.Future;
  */
 @Component
 @EnableConfigurationProperties(User.class)
+@Slf4j
 public class AppRunner implements CommandLineRunner {
 
-    private static final Logger logger = LoggerFactory.getLogger(AppRunner.class);
 
     private final NetPagerLookupBusiness netPagerLookupBusiness;
 
@@ -32,7 +31,7 @@ public class AppRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        logger.info("用户信息：{}", user);
+        log.info("用户信息：{}", user);
         // Start the clock
         StopWatch stopWatch = new StopWatch();
         stopWatch.start("任务一");
@@ -59,7 +58,7 @@ public class AppRunner implements CommandLineRunner {
         stopWatch.stop();
 
 
-        logger.info(stopWatch.prettyPrint());
+        log.info(stopWatch.prettyPrint());
 
     }
 
