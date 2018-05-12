@@ -22,7 +22,7 @@ public class NetPagerLookupBusiness {
     @Autowired
     private INetPageDownService netPageDownService;
 
-    @Async
+    @Async("threadPoolTaskExecutor1")
     public Future<String> findByUrl(String url) throws InterruptedException {
         log.info("Looking up " + url);
         String results = netPageDownService.findByUrl(url);

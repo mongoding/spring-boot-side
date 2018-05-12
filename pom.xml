@@ -32,6 +32,10 @@
         <module>springboot-base</module>
         <module>springboot-test</module>
 
+        <module>springboot-language-kotlin</module>
+        <module>springboot-language-jdk</module>
+        <module>springboot-language-groovy</module>
+
         <module>springboot-cache-redis</module>
         <module>springboot-cache-with-spring</module>
 
@@ -73,7 +77,6 @@
 
 
         <module>springboot-with-docker</module>
-        <module>springboot-jdk</module>
 
         <module>springboot-cap-ignite</module>
         <module>springboot-cap-zookeeper</module>

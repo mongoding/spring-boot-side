@@ -19,3 +19,6 @@ spring boot 基础
 - 定制banner
 - 日志 logback
 - actuator
+
+详解见:https://mongoding.github.io/2017/08/17/spring-boot-%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/
+
