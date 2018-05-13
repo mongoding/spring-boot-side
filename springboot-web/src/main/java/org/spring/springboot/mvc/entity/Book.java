@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Book 实体类
  * <p>
- * Created by mongoding on 27/09/2017.
+ * Created by mongoding on 30/09/2017.
  */
 public class Book implements Serializable {
 

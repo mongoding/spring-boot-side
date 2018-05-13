@@ -12,13 +12,13 @@ import java.util.Map;
 /**
  * Book 业务层实现
  * <p>
- * Created by mongoding on 27/09/2017.
+ * Created by mongoding on 30/09/2017.
  */
 @Service
 public class BookServiceImpl implements BookService {
 
     // 模拟数据库，存储 Book 信息
-    // 第五章《﻿数据存储》会替换成 MySQL 存储
+    // 第五章《﻿数据存储》会替换成 H2 数据源存储
     private static Map<Long, Book> BOOK_DB = new HashMap<>();
 
     @Override

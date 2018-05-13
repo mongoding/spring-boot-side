@@ -60,9 +60,12 @@
 - springboot-webflux-redis-cache：webflux与redis
 - springboot-webflux-mongodb：webflux与mongodb
 - springboot-with-docker：用docker 容器技术启动Spring boot
-- springboot-jdk：jdk 内容联系模块，如jdk9 等新内容（尚无实质内容）
+- springboot-language-jdk：jdk 内容联系模块，如jdk9 等新内容（尚无实质内容）
+- springboot-language-kotlin：jdk kotlin 语言的Spring boot 实例
+- springboot-language-groovy：jdk groovy 语言的Spring boot 实例
 - springboot-cap-ignite：与ignite 整合的例子
 - springboot-cap-zookeeper：与zookeeper 整合的例子
+- springboot-dubbo-api：sdk 接口
 - springboot-dubbo-provider：与dubbo整合的例子，服务提供者（与Spring boot 2.0 整合的待发布，暂无法完成测试）
 - springboot-dubbo-consumer：与dubbo整合的例子，服务消费者（与Spring boot 2.0 整合的待发布，暂无法完成测试）
 
