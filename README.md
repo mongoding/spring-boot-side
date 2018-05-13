@@ -6,8 +6,10 @@
 
 ### 版本信息
 
-- jdk：jdk8
-- Spring boot ：Spring boot 2.0
+- jdk：>= jdk8   jdk9 可运行
+- Spring boot ：Spring boot 2.1
+
+各jar 包版本基本会保持与最新的版本同步更新升级
 
 ### spring boot 2 变动
 - @ConditionalOnBean现在的判断条件由OR变为了AND。
@@ -31,8 +33,7 @@
 - springboot-data-mybatis：与mybatis 整合的例子
 - springboot-data-mybatis-annotation：与mybatis 整合例子，mybatis 使用注解
 - springboot-data-mybatis-mutil-datasource：与mybatis 整合例子，多数据源的情况
-- springboot-web：与Spring web 常见技术整合例子，包括上传下载，mvc，servlet等
-- springboot-web-thymeleaf：web 项目整合thymeleaf 模板（页面模板技术）
+- springboot-web：与Spring web 常见技术整合例子，包括上传下载，mvc，servlet等还有thymyleaf 模板的支持
 - springboot-web-freemarker：web 项目整合freemarker（页面模板技术）
 - springboot-test:与常见测试技术的整合例子
 - springboot-async-methods：整合Spring异步方法的例子
