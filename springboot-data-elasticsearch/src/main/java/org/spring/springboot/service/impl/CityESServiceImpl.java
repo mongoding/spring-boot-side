@@ -1,6 +1,6 @@
 package org.spring.springboot.service.impl;
 
-import org.elasticsearch.common.lucene.search.function.FiltersFunctionScoreQuery;
+import org.elasticsearch.common.lucene.search.function.FunctionScoreQuery;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.query.functionscore.FunctionScoreQueryBuilder;
 import org.slf4j.Logger;
@@ -123,7 +123,7 @@ public class CityESServiceImpl implements CityService {
                 QueryBuilders.boolQuery()
                         .should(QueryBuilders.matchQuery("name", searchContent))
                         .should(QueryBuilders.matchPhraseQuery("description", searchContent))
-        ).scoreMode(FiltersFunctionScoreQuery.ScoreMode.SUM).setMinScore(MIN_SCORE);
+        ).scoreMode(FunctionScoreQuery.ScoreMode.SUM).setMinScore(MIN_SCORE);
 
         // 分页参数
         Pageable pageable = new PageRequest(pageNumber, pageSize);
