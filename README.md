@@ -1,10 +1,10 @@
-# spring boot 学习教程 spring-boot-side
+# java 生态探索教程 spring-boot-side
 
 ## 项目说明
 
-#### 本实例不仅仅是为了学习Spring boot 更是为了利用Spring boot 快速上手，学习服务端开发领域各种技术，如：Spring 异步，缓存，mq，webflux，mybatis 等
-#### 配合spring以及docker启动中间件做Java生态研究（redis，ignite，tasks，zookeeper，dubbo，kafka，rabbitmq）
-#### 对常见技术的整合集成，以及前沿新技术的整合，保持最新的版本
+-  #### 本实例不仅仅是为了学习Spring boot 更是为了利用Spring boot 快速上手，学习服务端开发领域各种技术，如：Spring 异步，缓存，mq，webflux，mybatis 等
+-  ####  配合spring以及用docker启动中间件做Java生态研究，测试（如：redis，ignite，tasks，zookeeper，dubbo，kafka，rabbitmq等）
+-  #### 对常见技术的整合集成，以及前沿新技术的整合（如：kotlin，webflux），保持最新的版本
 
 ## 启动说明
 
