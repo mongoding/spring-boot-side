@@ -1,8 +1,0 @@
-127.0.0.1 zk.spring.com
-127.0.0.1 redis.spring.com
-127.0.0.1 rabbitmq.spring.com
-127.0.0.1 kafka.spring.com
-127.0.0.1 es.spring.com
-127.0.0.1 m.db.spring.com
-127.0.0.1 s.db.spring.com
-127.0.0.1 mongodb.spring.com

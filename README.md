@@ -1,17 +1,40 @@
 # spring boot 学习教程 spring-boot-side
 
-### 说明
+## 项目说明
 
-#### 本实例不仅仅是为了学习Spring boot 更是为了用Spring boot 快速上手，学习服务端开发领域各种技术，如：Spring 异步，缓存，mq，webflux 等
+#### 本实例不仅仅是为了学习Spring boot 更是为了利用Spring boot 快速上手，学习服务端开发领域各种技术，如：Spring 异步，缓存，mq，webflux，mybatis 等
+#### 配合spring以及docker启动中间件做Java生态研究（redis，ignite，tasks，zookeeper，dubbo，kafka，rabbitmq）
+#### 对常见技术的整合集成，以及前沿新技术的整合，保持最新的版本
 
-### 版本信息
+## 启动说明
+
+#### 如果是不依赖中间件的模块，单独运行main 方法即可运行
+#### 如果有依赖redis，zookeeper 等的模块，建议用docker 启动，同时绑host 访问
+- host：
+```127.0.0.1 zk.spring.com
+   127.0.0.1 redis.spring.com
+   127.0.0.1 rabbitmq.spring.com
+   127.0.0.1 kafka.spring.com
+   127.0.0.1 es.spring.com
+   127.0.0.1 m.db.spring.com
+   127.0.0.1 s.db.spring.com
+   127.0.0.1 mongodb.spring.com
+   ```
+- docker：docker学习详见https://mongoding.github.io/2017/11/16/docker/  ，启动脚本见script 目录
+
+```
+脚本整理中
+```
+
+
+## 版本信息
 
 - jdk：>= jdk8   jdk9 可运行
 - Spring boot ：Spring boot 2.1
 
 各jar 包版本基本会保持与最新的版本同步更新升级
 
-### spring boot 2 变动
+## spring boot 2 变动
 - @ConditionalOnBean现在的判断条件由OR变为了AND。
 - 默认的连接池已经由Tomcat切换到了HikariCP
 - Spring Boot现在默认是使用CGLIB代理，同时包含AOP支持
@@ -23,7 +46,7 @@
 
 - 其他参见 https://mp.weixin.qq.com/s/EWmuzsgHueHcSB0WH-3AQw
 
-### 学习路线（建议按照以下顺序学习）
+## 学习路线（建议按照以下顺序学习）
 
 
 - springboot-quickstart ：spirng boot 快速开始项目，内容简单
@@ -42,8 +65,6 @@
 
 
 ----------------------
-
-### 内容逐步更新中
 
 
 - springboot-mq-kafka：与kafka 的整合例子
@@ -70,24 +91,24 @@
 - springboot-dubbo-provider：与dubbo整合的例子，服务提供者（与Spring boot 2.0 整合的待发布，暂无法完成测试）
 - springboot-dubbo-consumer：与dubbo整合的例子，服务消费者（与Spring boot 2.0 整合的待发布，暂无法完成测试）
 
-### 资源地址(欢迎给star或fork)
+## 资源地址(欢迎给star或fork)
 
 #### github 地址：https://github.com/mongoding/spring-boot-side
 
 #### spring boot 脑图地址：https://github.com/mongoding/brain-map-collection/tree/master/%E5%AD%A6%E4%B9%A0
 #### 博客地址：https://mongoding.github.io/
 
-### 推荐学习地址：
+## 推荐学习地址：
 #### spring cloud: http://www.spring4all.com/
 #### spring boot : https://gitee.com/hengboy/spring-boot-chapter
 #### Spring Boot：https://github.com/dyc87112/SpringBoot-Learning
 
-### 官方文档翻译
+## 官方文档翻译
 #### https://github.com/qibaoguang/Spring-Boot-Reference-Guide
 #### https://legacy.gitbook.com/book/qbgbook/spring-boot-reference-guide-zh/details
 
 
-### 最常见基础包
+## 最常见基础包
 
 ```
 <!--自动热部署包-->
