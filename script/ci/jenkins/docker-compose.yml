@@ -1,0 +1,13 @@
+web:
+    build: .
+    ports: 
+        - 8051:8080
+        - 45000:50000
+    container_name: jenkins
+#    restart: always
+    environment:
+        - TZ=Asia/Shanghai
+        - JAVA_OPTS=-Dhudson.footerURL=http://www.timekey.com.cn/
+    volumes:
+        - /home/subversion/:/home/subversion/
+        - /home/git/:/home/git/

@@ -1,0 +1,14 @@
+lts:
+  jobtracker:
+    cluster-name: default_cluster
+    listen-port: 35001
+    registry-address: zookeeper://zoo1:2181
+    configs:
+      job:
+        logger: mysql
+        queue: mysql
+      jdbc:
+        url: jdbc:mysql://db:3306/lts?useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password: 111111
+    bind-ip: 

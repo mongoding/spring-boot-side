@@ -1,0 +1,23 @@
+version: '3'
+
+services: 
+  dubbo-admin:
+    image: lsw1991abc/dubbo-admin:2.5.5
+    container_name: dubbo-admin
+    environment:
+      ZOOKEEPER_ADDRESS: zookeeper01:2181
+      ROOT_PASSWORD: root
+      GUEST_PASSWORD: guest
+    volumes:
+      - ../common/conf/localtime:/etc/localtime:ro
+      - ../common/conf/timezone:/etc/timezone:ro
+    networks:
+      - xbug-network
+    domainname: xbug-network
+    hostname: dubbo-admin
+    ports:
+      - 12181:8080
+
+networks:
+  xbug-network:
+    external: true  

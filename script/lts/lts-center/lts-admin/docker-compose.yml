@@ -1,0 +1,10 @@
+version: '2'
+services:
+    admin: 
+        build: ./
+        container_name: lts-admin
+        network_mode: 'host'
+        volumes: 
+            - ./config/lts-admin.cfg:/opt/tomcat/webapps/ROOT/WEB-INF/classes/lts-admin.cfg:ro
+            - ./config/lts-monitor.cfg:/opt/tomcat/webapps/ROOT/WEB-INF/classes/lts-monitor.cfg:ro
+            - ./config/server.xml:/opt/tomcat/conf/server.xml:ro

@@ -1,0 +1,76 @@
+version: '2'
+
+services:
+    redis:
+        image: registry.cn-hangzhou.aliyuncs.com/kennylee/redis
+        container_name: elk_redis
+        restart: always
+        networks:
+            - elk
+        volumes:
+            - ./data/redis:/data:rw
+    elasticsearch:
+        build: elasticsearch/
+        container_name: elasticsearch 
+        restart: always
+        ports:
+            - "9200:9200"
+            - "9300:9300"
+        environment:
+            ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+            # disable X-Pack
+            # see https://www.elastic.co/guide/en/x-pack/current/xpack-settings.html
+            #     https://www.elastic.co/guide/en/x-pack/current/installing-xpack.html#xpack-enabling
+            xpack.security.enabled: "false"
+            xpack.monitoring.enabled: "false"
+            xpack.graph.enabled: "false"
+            xpack.watcher.enabled: "false"
+        networks:
+            - elk
+        volumes:
+            - ./data/elasticsearch:/usr/share/elasticsearch/data:rw
+    logstash:
+        build: logstash/indexer/
+        container_name: logstash_indexer
+        restart: always
+        volumes:
+            - ./logstash/indexer/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+            - ./logstash/indexer/pipeline:/usr/share/logstash/pipeline
+        environment:
+            LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+        networks:
+            - elk
+        depends_on:
+            - elasticsearch
+            - redis
+    logstash-shipper:
+        image: registry.cn-hangzhou.aliyuncs.com/kennylee/logstash:5.3.0
+        container_name: logstash_shipper
+        restart: always
+        ports:
+            - 9500:9500/udp
+        volumes:
+            - ./logstash/shipper/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+            - ./logstash/shipper/pipeline:/usr/share/logstash/pipeline
+        environment:
+            LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+        networks:
+            - elk
+        depends_on:
+            - elasticsearch
+            - redis
+    kibana:
+        build: kibana/
+        container_name: kibana
+        restart: always
+        volumes:
+            - ./kibana/config/:/usr/share/kibana/config
+        ports:
+            - "5601:5601"
+        networks:
+            - elk
+        depends_on:
+            - elasticsearch
+networks:
+    elk:
+        driver: bridge

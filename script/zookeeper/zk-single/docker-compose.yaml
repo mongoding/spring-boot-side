@@ -1,0 +1,13 @@
+version: '3.0'
+services:
+    zookeeper:
+        image: zookeeper
+        #restart: always
+        container_name: zookeeper
+        ports:
+            - "2181:2181"
+
+networks:
+    default:
+        external:
+            name: mynet

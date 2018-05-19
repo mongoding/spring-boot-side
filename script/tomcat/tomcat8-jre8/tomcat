@@ -1,0 +1,71 @@
+#!/bin/sh
+# Tomcat auto-start @/etc/init.d/tomcat
+#
+# description: Auto-starts tomcat
+# processname: tomcat
+# pidfile: /var/run/tomcat.pid
+
+PATH=/bin:/usr/bin:/sbin:/usr/sbin
+NAME=tomcat
+DESC="Tomcat servlet engine"
+
+# 由于/etc/init.d/ 中的脚本无法获取到bash设置好的环境变量。最简单解决方法是写死在这。
+export JAVA_HOME="/opt/jdk"
+export CATALINA_HOME="/opt/tomcat"
+export JAVA_OPTS="-Djava.security.egd=file:///dev/urandom -server -Xms128m -Xmx1024m"
+
+if [ ! -f $CATALINA_HOME/bin/catalina.sh ]; then 
+    echo "$NAME not valilable..."
+    exit
+fi
+
+tomcat_process_count(){
+	ps ax --width=1000 | grep "[o]rg.apache.catalina.startup.Bootstrap start" | awk '{printf $1 " "}' | wc | awk '{print $2}' > /tmp/tomcat_process_count.txt
+    read line < /tmp/tomcat_process_count.txt
+}
+
+case $1 in
+start)
+	tomcat_process_count
+	if [ $line -gt 0 ]; then
+		echo "$DESC is already running"
+	else
+		echo "Starting $DESC"
+        	sh $CATALINA_HOME/bin/startup.sh
+	fi
+        ;; 
+stop)   
+    	tomcat_process_count
+	if [ $line -gt 0 ]; then
+		echo "Stopping $DESC"
+		sh $CATALINA_HOME/bin/shutdown.sh
+	else
+		echo "$DESC is not running "
+	fi
+        ;; 
+status)
+    tomcat_process_count
+    if [ $line -gt 0 ]; then
+        echo -n "$NAME ( pid "
+        ps ax --width=1000 | grep "org.apache.catalina.startup.Bootstrap start" | awk '{printf $1 " "}'
+        echo -n ") is running..."
+        echo
+    else
+        echo "$NAME is stopped"
+    fi
+    ;;
+restart)
+  	tomcat_process_count
+    	if [ $line -gt 0 ]; then
+        	$0 stop
+		sleep 1
+	fi
+        $0 start
+        ;; 
+*)
+	echo "Usage: $0 {start|stop|restart|status}"
+	exit 1
+	;;
+esac    
+
+exit 0

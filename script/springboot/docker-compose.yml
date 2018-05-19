@@ -1,0 +1,11 @@
+version: '2'
+services:
+    app: 
+        build: ./image-build/
+        volumes: 
+            - ./app/:/data/app/
+            - ./config/application.yml:/data/application.yml:ro
+        ports: 
+            - "8080:8080"
+        command: 
+            - --spring.config.location=/data/application.yml

@@ -1,0 +1,89 @@
+version: '3'
+
+networks:
+    &network ltsnetwork:
+        external:
+           name: lts
+               
+services:
+    zoo1:
+        image: registry.cn-hangzhou.aliyuncs.com/kennylee/zookeeper
+        container_name: lts-zoo1
+        restart: unless-stopped
+        ports:
+            - "2181:2181"
+        volumes:
+            - ./data/zoo1/data/:/data/:z
+            - ./data/zoo1/datalog/:/datalog/:z
+        environment:
+            - ZOO_MY_ID=1
+        networks:
+            *network :
+                ipv4_address: 172.19.1.10
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '30m'
+                max-file: '1'
+    db:
+        image: registry.cn-hangzhou.aliyuncs.com/kennylee/mysql
+        container_name: lts-mysql
+        ports: 
+            - "3306:3306"
+        restart: unless-stopped
+        volumes:
+            - ./data/mysql/:/var/lib/mysql/:rw
+            - ./lts-mysql/database/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+        environment:
+            - MYSQL_ROOT_PASSWORD=111111
+        networks:
+            *network :
+                ipv4_address: 172.19.1.11
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '30m'
+                max-file: '1'
+    admin: 
+        build: ./lts-admin/
+        container_name: lts-admin
+        ports: 
+            - "8080:8085"
+        environment:
+            JAVA_OPTS: -server -Xms128m -Xmx256m
+        volumes: 
+            - ./lts-admin/config/lts-admin.cfg:/opt/tomcat/webapps/ROOT/WEB-INF/classes/lts-admin.cfg:ro
+            - ./lts-admin/config/lts-monitor.cfg:/opt/tomcat/webapps/ROOT/WEB-INF/classes/lts-monitor.cfg:ro
+            - ./lts-admin/config/server.xml:/opt/tomcat/conf/server.xml:ro
+        restart: unless-stopped  
+        depends_on:
+            - zoo1
+            - db
+        networks:
+            - *network
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '30m'
+                max-file: '1'
+    jobtracker1: 
+        build: ./lts-jobtracker/
+        container_name: lts-jobtracker1
+        volumes: 
+            - ./lts-jobtracker/config/application.yml:/data/application.yml:ro
+        entrypoint: 
+            - /entrypoint.sh
+            - --spring.config.location=/data/application.yml   
+        restart: unless-stopped  
+        environment:
+            JAVA_OPTS: -server -Xms128m -Xmx256m
+        depends_on:
+            - zoo1
+            - db
+        networks:
+            - *network
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '30m'
+                max-file: '1'

@@ -1,0 +1,84 @@
+version: '3'
+
+networks:
+    &network net:
+        driver: bridge
+        ipam:
+            driver: default
+                
+services:
+    postgresql:
+        image: ${POSTGRESQL_IMAGE}
+        container_name: gitlab_db
+        restart: always
+        expose:
+            - '5432'
+        environment:
+            - POSTGRES_USER=${POSTGRESQL_USER}
+            - POSTGRES_PASSWORD=${POSTGRESQL_PASSWORD}
+            - POSTGRES_DB=${POSTGRESQL_DB}
+        volumes:
+            - ${POSTGRESQL_DATA}:/var/lib/postgresql/data:rw
+        networks:
+            - *network
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '30m'
+                max-file: '1'
+    redis:
+        image: ${REDIS_IMAGE}
+        restart: always
+        container_name: gitlab_redis
+        expose:
+            - '6379'
+        networks:
+            - *network
+        #volumes:
+        #    - ${REDIS_DATA}:/data:z
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '30m'
+                max-file: '1'
+    gitlab:
+        image: ${GITLAB_IMAGE}
+        container_name: gitlab
+        hostname: ${GITLAB_HOSTNAME}
+        ports:
+            - "${GITLAB_HTTP_PORT}:${GITLAB_HTTP_PORT}"
+            - "${GITLAB_SSH_PORT}:22"
+        restart: always
+        networks:
+            - *network
+        volumes:
+            - ${GITLAB_DATA_PATH}:/var/opt/gitlab:rw
+            - ${GITLAB_LOGS_PATH}:/var/log/gitlab:rw
+            - ${GITLAB_CONFIG_PATH}:/etc/gitlab:rw
+        privileged: true
+        environment:
+            GITLAB_OMNIBUS_CONFIG: |
+                external_url "http://${GITLAB_HOSTNAME}:${GITLAB_HTTP_PORT}"
+                gitlab_rails['gitlab_shell_ssh_port'] = ${GITLAB_SSH_PORT}
+                postgresql['enable'] = false
+                gitlab_rails['db_username'] = "${POSTGRESQL_USER}"
+                gitlab_rails['db_password'] = "${POSTGRESQL_PASSWORD}"
+                gitlab_rails['db_host'] = "postgresql"
+                gitlab_rails['db_port'] = "5432"
+                gitlab_rails['db_database'] = "${POSTGRESQL_DB}"
+                gitlab_rails['db_adapter'] = 'postgresql'
+                gitlab_rails['db_encoding'] = 'utf8'
+                redis['enable'] = false
+                gitlab_rails['redis_host'] = 'redis'
+                gitlab_rails['redis_port'] = '6379'
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '30m'
+                max-file: '2'
+        depends_on:
+            - postgresql
+            - redis
+
+
+

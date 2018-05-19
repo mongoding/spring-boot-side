@@ -1,0 +1,43 @@
+version: '3'
+
+networks:
+    &network ltsnetwork:
+        external:
+           name: lts
+
+services:
+    jobtracker2: 
+        build: ./lts-center/lts-jobtracker/
+        container_name: lts-jobtracker2
+        volumes: 
+            - ./lts-center/lts-jobtracker/config/application.yml:/data/application.yml:ro
+        entrypoint: 
+            - /entrypoint.sh
+            - --spring.config.location=/data/application.yml   
+        restart: unless-stopped  
+        environment:
+            JAVA_OPTS: -server -Xms128m -Xmx256m
+        networks:
+            - *network
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '30m'
+                max-file: '1'
+    jobtracker: 
+        build: ./lts-tasktracker/
+        volumes: 
+            - ./lts-tasktracker/config/application.yml:/data/application.yml:ro
+        container_name: lts-tasktracker
+        environment:
+            JAVA_OPTS: -server -Xms128m -Xmx256m
+        entrypoint: 
+            - /entrypoint.sh
+            - --spring.config.location=/data/application.yml
+        networks:
+            - *network
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '30m'
+                max-file: '1'

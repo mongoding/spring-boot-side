@@ -1,0 +1,14 @@
+version: '2'
+services:
+    app:
+        image: registry.cn-hangzhou.aliyuncs.com/kennylee/tomcat:tomcat8-jre8
+        ports:
+            - "8080:8080"
+        volumes:
+            - ./app/webapps/:/opt/tomcat/webapps/:z
+            #- ./config/server.xml:/opt/tomcat/conf/server.xml:ro
+            - ./data/logs/:/opt/tomcat/logs/:z
+        restart: always
+        environment:
+            - JAVA_OPTS=-server -Xms128m -Xmx1024m
+
