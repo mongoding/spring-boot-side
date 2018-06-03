@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: spring-boot-admin
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+debug: true
+server:
+  port: 8039
+
