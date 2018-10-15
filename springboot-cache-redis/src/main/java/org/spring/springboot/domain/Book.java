@@ -1,8 +1,5 @@
 package org.spring.springboot.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
@@ -10,14 +7,13 @@ import java.io.Serializable;
  * <p>
  * Created by mongoding on 30/09/2017.
  */
-@Entity
+
 public class Book implements Serializable {
 
     /**
      * 编号
      */
-    @Id
-    @GeneratedValue
+
     private Long id;
 
     /**
