@@ -13,7 +13,7 @@
 
     <parent>
         <groupId>org.spring.springboot</groupId>
-        <artifactId>spring-boot-side-parent</artifactId>
+        <artifactId>springboot-side-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../springboot-parent/pom.xml</relativePath>
     </parent>
@@ -35,10 +35,7 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -52,6 +49,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>

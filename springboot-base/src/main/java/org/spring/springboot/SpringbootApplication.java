@@ -32,6 +32,7 @@ public class SpringbootApplication {
     public static void main(String[] args) {
 
 
+
         System.out.println("主线程start：" + Thread.currentThread().getName());
         ApplicationContext applicationContext = SpringApplication.run(SpringbootApplication.class, args);
         System.out.println("主线程：" + Thread.currentThread().getName());
