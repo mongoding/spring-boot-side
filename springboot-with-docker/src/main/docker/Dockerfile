@@ -1,5 +1,5 @@
 # 基础镜像  
-FROM frolvlad/alpine-oraclejdk9:slim
+FROM fjfisbein/alpine-oracle-jdk9
   
 # VOLUME命令用于让你的容器访问宿主机上的目录。  
 VOLUME /tmp  

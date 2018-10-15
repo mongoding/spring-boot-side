@@ -14,7 +14,7 @@
 
     <parent>
         <groupId>org.spring.springboot</groupId>
-        <artifactId>spring-boot-side-parent</artifactId>
+        <artifactId>springboot-side-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../springboot-parent/pom.xml</relativePath>
     </parent>
@@ -38,11 +38,6 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
 

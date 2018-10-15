@@ -1,0 +1,19 @@
+127.0.0.1 zk1.spring.com
+127.0.0.1 zk2.spring.com
+127.0.0.1 zk3.spring.com
+
+127.0.0.1 redis1.spring.com
+127.0.0.1 redis2.spring.com
+127.0.0.1 redis3.spring.com
+
+127.0.0.1 m.redis.spring.com
+127.0.0.1 s.redis.spring.com
+
+127.0.0.1 rabbitmq.spring.com
+127.0.0.1 kafka.spring.com
+127.0.0.1 rocketmq.spring.com
+   
+127.0.0.1 es.spring.com
+127.0.0.1 m.db.spring.com
+127.0.0.1 s.db.spring.com
+127.0.0.1 mongodb.spring.com

@@ -13,7 +13,7 @@
 
     <parent>
         <groupId>org.spring.springboot</groupId>
-        <artifactId>spring-boot-side-parent</artifactId>
+        <artifactId>springboot-side-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../springboot-parent/pom.xml</relativePath>
     </parent>
@@ -22,7 +22,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <ignite.version>2.4.0</ignite.version>
     </properties>
 
     <dependencies>
@@ -34,70 +33,60 @@
         <dependency>
             <groupId>org.apache.ignite</groupId>
             <artifactId>ignite-core</artifactId>
-            <version>${ignite.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.ignite</groupId>
             <artifactId>ignite-web</artifactId>
-            <version>${ignite.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.ignite</groupId>
-            <artifactId>ignite-rest-http</artifactId>
-            <version>${ignite.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>org.apache.ignite</groupId>
             <artifactId>ignite-aop</artifactId>
-            <version>${ignite.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.ignite</groupId>
             <artifactId>ignite-urideploy</artifactId>
-            <version>${ignite.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.ignite</groupId>
             <artifactId>ignite-tools</artifactId>
-            <version>${ignite.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.ignite</groupId>
             <artifactId>ignite-rocketmq</artifactId>
-            <version>${ignite.version}</version>
         </dependency>
 
 
         <dependency>
             <groupId>org.apache.ignite</groupId>
             <artifactId>ignite-ssh</artifactId>
-            <version>${ignite.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.ignite</groupId>
             <artifactId>ignite-spring-data</artifactId>
-            <version>${ignite.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.ignite</groupId>
             <artifactId>ignite-kafka</artifactId>
-            <version>${ignite.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.ignite</groupId>
             <artifactId>ignite-jta</artifactId>
-            <version>${ignite.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.ignite</groupId>
             <artifactId>ignite-jcl</artifactId>
-            <version>${ignite.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.ignite</groupId>
             <artifactId>ignite-cloud</artifactId>
-            <version>${ignite.version}</version>
         </dependency>
 
         <dependency>
@@ -108,17 +97,14 @@
         <dependency>
             <groupId>org.apache.ignite</groupId>
             <artifactId>ignite-slf4j</artifactId>
-            <version>${ignite.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.ignite</groupId>
             <artifactId>ignite-spring</artifactId>
-            <version>${ignite.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.ignite</groupId>
             <artifactId>ignite-zookeeper</artifactId>
-            <version>${ignite.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
