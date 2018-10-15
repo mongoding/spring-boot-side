@@ -1,0 +1,100 @@
+version: '3.0'
+
+
+networks:
+     network:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.16.238.0/16
+services:
+    redis1:
+        image: redis
+        restart: always
+        container_name: redis1
+        ports:
+            - "7001:6379"
+        volumes:
+            #- ./data:/data:z
+            - ./conf/cluster/redis.conf:/usr/local/etc/redis/redis.conf
+
+        command: [ "redis-server","/usr/local/etc/redis/redis.conf" ]
+        networks:
+                    network :
+                        ipv4_address: 172.16.238.10
+
+    redis2:
+        image: redis
+        restart: always
+        container_name: redis2
+        ports:
+            - "7002:6379"
+        volumes:
+            #- ./data:/data:z
+            - ./conf/cluster/redis.conf:/usr/local/etc/redis/redis.conf
+        command: [ "redis-server","/usr/local/etc/redis/redis.conf" ]
+        networks:
+                    network :
+                        ipv4_address: 172.16.238.11
+    redis3:
+        image: redis
+        restart: always
+        container_name: redis3
+        ports:
+            - "7003:6379"
+        volumes:
+            #- ./data:/data:z
+            - ./conf/cluster/redis.conf:/usr/local/etc/redis/redis.conf
+        command: [ "redis-server","/usr/local/etc/redis/redis.conf" ]
+        networks:
+                    network :
+                        ipv4_address: 172.16.238.12
+
+    redis4:
+        image: redis
+        restart: always
+        container_name: redis4
+        ports:
+            - "7004:6379"
+        volumes:
+            #- ./data:/data:z
+            - ./conf/cluster/redis.conf:/usr/local/etc/redis/redis.conf
+        command: [ "redis-server","/usr/local/etc/redis/redis.conf" ]
+        networks:
+                    network :
+                        ipv4_address: 172.16.238.13
+
+    redis5:
+        image: redis
+        restart: always
+        container_name: redis5
+        ports:
+            - "7005:6379"
+        volumes:
+            #- ./data:/data:z
+            - ./conf/cluster/redis.conf:/usr/local/etc/redis/redis.conf
+        command: [ "redis-server","/usr/local/etc/redis/redis.conf" ]
+        networks:
+                    network :
+                        ipv4_address: 172.16.238.14
+
+    redis6:
+        image: redis
+        restart: always
+        container_name: redis6
+        ports:
+            - "7006:6379"
+        volumes:
+            #- ./data:/data:z
+            - ./conf/cluster/redis.conf:/usr/local/etc/redis/redis.conf
+        command: [ "redis-server","/usr/local/etc/redis/redis.conf" ]
+        networks:
+                    network :
+                        ipv4_address: 172.16.238.15
+
+    redis-trib:
+        image: zvelo/redis-trib
+        container_name: redis-trib
+        command: create --replicas 1 172.16.238.10:6379
+

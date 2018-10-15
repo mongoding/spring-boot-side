@@ -1,0 +1,17 @@
+lts:
+  tasktracker:
+    cluster-name: default_cluster
+    registry-address: zookeeper://zoo1:2181
+    node-group: test_trade_TaskTracker
+    configs:
+      job:
+        fail:
+          store: mapdb
+    bind-ip: 
+---
+lts:
+  tasktracker:
+    jobrunner:
+      mapper:
+        - "JobRunnerA" : "任务A"
+        - "JobRunnerB" : "任务B"

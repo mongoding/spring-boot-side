@@ -22,19 +22,20 @@ RUN mkdir -p    ${HOME}/7001/data \
 RUN mkdir -p /data/redis/data
   
 ADD conf ${HOME}
-RUN mv ${HOME}/redis.conf /data/redis/redis.conf
+RUN ls  ${HOME}
+RUN mv ${HOME}/ /data/redis/
     
 # get redis-trib.rb
-RUN curl https://raw.githubusercontent.com/antirez/redis/3.2/src/redis-trib.rb>${HOME}/redis-trib.rb
+RUN curl https://raw.githubusercontent.com/antirez/redis/3.2/src/redis-trib.rb > ${HOME}/redis-trib.rb
 # or ADD from local
-# ADD ./redis-trib.rb ${HOME}/redis-trib.rb
+#ADD ./redis-trib.rb ${HOME}/redis-trib.rb
 RUN chmod a+x ${HOME}/redis-trib.rb
 
 
 ADD start-redis-cluster.sh ${HOME}/start-redis-cluster.sh
 RUN chmod a+x ${HOME}/start-redis-cluster.sh
 
-EXPOSE 7001 7002 7003 7004 7005 7006 6379 
+EXPOSE 7001 7002 7003 7004 7005 7006 6379
 
 ENTRYPOINT ["/bin/sh", "/data/redis-cluster/start-redis-cluster.sh"]
 #CMD ["bin/bash", "-D"]

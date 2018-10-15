@@ -1,0 +1,17 @@
+#!/bin/bash
+### find file in jars
+
+if [ $# -lt 2 ];then
+    echo "Usage : find-in-jar key path";
+    exit 1;
+fi
+
+keyword=$1;
+locate=$2;
+echo "find $keyword in $locate"
+for filename in `find $locate -name '*.jar'`; do
+    result=`unzip -l "$filename"|grep "$keyword"`
+    if [ $? = 0 ];then
+	echo "$filename : $result"
+    fi
+done

@@ -2,7 +2,7 @@ version: '3.0'
 
 services:
     activemq:
-        build: .
+        build: ""
         image: wurstmeister/kafka
         # restart: always
         container_name: kafka

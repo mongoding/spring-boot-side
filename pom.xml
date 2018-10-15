@@ -14,9 +14,13 @@
 
 
     <modules>
+        <module>springboot-parent</module>
+
         <module>springboot-quickstart</module>
+        <module>springboot-admin</module>
         <module>springboot-base</module>
         <module>springboot-test</module>
+        <module>springboot-aop</module>
 
         <module>springboot-language-kotlin</module>
         <module>springboot-language-jdk</module>
@@ -26,39 +30,41 @@
         <module>springboot-cache-with-spring</module>
 
 
-        <module>springboot-mq-kafka</module>
-        <module>springboot-mq-redis</module>
-        <module>springboot-mq-rabbitmq</module>
+        <module>springboot-oauth-security-oauth2</module>
+        <module>springboot-oauth-shiro</module>
 
-        <module>springboot-doc</module>
+        <module>springboot-jar-pom</module>
+
+
+
+        <module>springboot-mq-kafka</module>
+        <module>springboot-mq-rabbitmq</module>
+        <module>springboot-mq-rocketmq</module>
+
+
         <module>springboot-scheduling-task</module>
         <module>springboot-scheduling-task-mossrose</module>
 
-
+        <module>springboot-doc</module>
         <module>springboot-async-methods</module>
 
-        <module>springboot-config-center</module>
         <module>springboot-data-elasticsearch</module>
-        <module>springboot-data-jdbc</module>
+        <module>springboot-data-mybatis-sharding-jdbc</module>
         <module>springboot-data-jpa</module>
-        <module>springboot-data-mybatis</module>
         <module>springboot-data-mongodb</module>
         <module>springboot-data-mybatis-annotation</module>
-        <module>springboot-data-mybatis-mutil-datasource</module>
+        <module>springboot-data-mybatis-mult-datasource</module>
 
 
-        <!--<module>springboot-dubbo-provider</module>
-        <module>springboot-dubbo-consumer</module>
-        <module>springboot-dubbo-api-sdk</module>
--->
+        <module>springboot-soa-dubbo</module>
+
+
         <module>springboot-web</module>
         <module>springboot-web-freemarker</module>
 
-        <module>springboot-webflux-quickstart</module>
         <module>springboot-webflux-web</module>
         <module>springboot-webflux-websocket</module>
-        <module>springboot-webflux-redis-cache</module>
-        <module>springboot-webflux-mongodb</module>
+        <module>springboot-webflux-redis-mongodb</module>
 
 
         <module>springboot-with-docker</module>

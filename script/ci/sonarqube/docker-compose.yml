@@ -1,0 +1,20 @@
+web:
+    image: sonarqube:5.1.2
+    ports:
+        - "9000:9000"
+    links:
+        - db:postgres
+    restart: always
+    environment:
+        - SONARQUBE_JDBC_URL=jdbc:postgresql://postgres:5432/sonar
+        - TZ=Asia/Shanghai
+    volumes:
+        - /home/subversion/:/home/subversion/
+db:
+    image: postgres
+    restart: always
+    expose:
+        - 5432
+    environment:
+        - POSTGRES_USER=sonar
+        - POSTGRES_PASSWORD=sonar

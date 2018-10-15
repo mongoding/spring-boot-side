@@ -1,6 +1,6 @@
 package org.spring.springboot.config;
 
-import org.spring.springboot.handler.EchoHandler;
+import org.spring.springboot.business.EchoHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

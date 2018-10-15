@@ -1,0 +1,37 @@
+version: '2'
+
+services:
+    http:
+        image: registry.cn-hangzhou.aliyuncs.com/kennylee/tnginx:2.2.0
+        container_name: "tnginx"
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ./config/nginx.conf:/etc/nginx/nginx.conf
+            - ./config/conf.d/:/etc/nginx/conf.d/
+            - ./config/ssl/:/etc/ssl/
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '30m'
+                max-file: '1'
+    app:
+        image: registry.cn-hangzhou.aliyuncs.com/kennylee/tomcat
+        container_name: "app"
+        ports:
+            - "8080"
+        volumes:
+            - ./tomcat/webapps/:/opt/tomcat/webapps/:z
+            - ./tomcat/config/server.xml:/opt/tomcat/conf/server.xml:ro
+            - ./data/logs/:/opt/tomcat/logs/:z
+        restart: always
+        environment:
+            - JAVA_OPTS=-Djava.security.egd=file:///dev/urandom -server -Xms128m -Xmx2048m
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '30m'
+                max-file: '1'
+
+

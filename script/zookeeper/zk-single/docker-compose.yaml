@@ -7,7 +7,3 @@ services:
         ports:
             - "2181:2181"
 
-networks:
-    default:
-        external:
-            name: mynet

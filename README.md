@@ -2,23 +2,35 @@
 
 ## 项目说明
 
--  #### 本实例不仅仅是为了学习Spring boot 更是为了利用Spring boot 快速上手，学习服务端开发领域各种技术，如：Spring 异步，缓存，mq，webflux，mybatis 等
--  ####  配合spring以及用docker启动中间件做Java生态研究，测试（如：redis，ignite，tasks，zookeeper，dubbo，kafka，rabbitmq等）
--  #### 对常见技术的整合集成，以及前沿新技术的整合（如：kotlin，webflux），保持最新的版本
+-  #### 本实例不仅仅是为了学习Spring boot ，更是为了利用Spring boot 快速上手，学习服务端开发领域各种技术，如：Spring 异步，缓存，mq，webflux，mybatis 等
+- ####  配合spring以及用docker启动中间件做Java生态研究，测试（如：redis，ignite，tasks，zookeeper，dubbo，kafka，rabbitmq等）
+-  #### 对常见技术的整合集成，以及前沿新技术的整合（如：kotlin，webflux）
 
 ## 启动说明
 
 #### 如果是不依赖中间件的模块，单独运行main 方法即可运行
 #### 如果有依赖redis，zookeeper 等的模块，建议用docker 启动，同时绑host 访问
 - host：
-```127.0.0.1 zk.spring.com
-   127.0.0.1 redis.spring.com
-   127.0.0.1 rabbitmq.spring.com
-   127.0.0.1 kafka.spring.com
-   127.0.0.1 es.spring.com
-   127.0.0.1 m.db.spring.com
-   127.0.0.1 s.db.spring.com
-   127.0.0.1 mongodb.spring.com
+```   127.0.0.1 zk1.spring.com
+      127.0.0.1 zk2.spring.com
+      127.0.0.1 zk3.spring.com
+      
+      127.0.0.1 redis1.spring.com
+      127.0.0.1 redis2.spring.com
+      127.0.0.1 redis3.spring.com
+      
+      127.0.0.1 m.redis.spring.com
+      127.0.0.1 s.redis.spring.com
+      
+      127.0.0.1 rabbitmq.spring.com
+      127.0.0.1 kafka.spring.com
+      127.0.0.1 rocketmq.spring.com
+         
+      127.0.0.1 es.spring.com
+      127.0.0.1 m.db.spring.com
+      127.0.0.1 s.db.spring.com
+      127.0.0.1 mongodb.spring.com
+
    ```
 - docker：docker学习详见https://mongoding.github.io/2017/11/16/docker/  ，启动脚本见script 目录
 

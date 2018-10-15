@@ -1,6 +1,6 @@
 package org.spring.springboot.routes;
 
-import org.spring.springboot.handler.CalculatorHandler;
+import org.spring.springboot.business.CalculatorHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

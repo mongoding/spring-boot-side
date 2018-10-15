@@ -1,0 +1,51 @@
+version: '3'
+    
+networks:
+    &network db:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.16.10.0/16
+
+services:
+    db-master:
+        build: ./replication/master/
+        ports: 
+            - 3306:3306
+        container_name: mysql-master
+        environment:
+            - MYSQL_ROOT_PASSWORD=111111
+        restart: on-failure
+        volumes:
+            - ./data/my-master:/var/lib/mysql/:rw
+              #- ./data/my-master-log:/var/log/mysql/:rw
+        networks:
+            *network :
+                ipv4_address: 172.16.10.1
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '30m'
+                max-file: '1'
+    db-slave-backup:
+        build: ./replication/slave-backup/
+        ports: 
+            - 3307:3306
+        container_name: mysql-slave-backup
+        environment:
+            - MYSQL_ROOT_PASSWORD=111111
+        restart: on-failure
+        volumes:
+            - ./data/my-slave-backup:/var/lib/mysql/:rw
+            #- ./data/my-slave-backup-log:/var/log/mysql/:rw
+        networks:
+            - *network
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '30m'
+                max-file: '1'
+        depends_on:
+            - db-master
+

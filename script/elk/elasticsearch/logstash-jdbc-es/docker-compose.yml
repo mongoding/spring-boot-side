@@ -1,0 +1,54 @@
+version: '3'
+
+networks:
+    &network db_es_net:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.16.238.0/24
+services:
+    db_es:
+        image: registry.cn-hangzhou.aliyuncs.com/kennylee/elasticsearch:5.3.0
+        container_name: db_es
+        ports:
+            - "9200:9200"
+            - "9300:9300"
+        environment:
+            ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+            # disable X-Pack
+            # see https://www.elastic.co/guide/en/x-pack/current/xpack-settings.html
+            #     https://www.elastic.co/guide/en/x-pack/current/installing-xpack.html#xpack-enabling
+            xpack.security.enabled: "false"
+            xpack.monitoring.enabled: "false"
+            xpack.graph.enabled: "false"
+            xpack.watcher.enabled: "false"
+        networks:
+            db_es_net:
+                ipv4_address: 172.16.238.10
+        volumes:
+            - ./data/elasticsearch:/usr/share/elasticsearch/data:rw
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '30m'
+                max-file: '2'
+    db_logstash:
+        build: logstash/db-shipper/
+        container_name: db_logstash
+        volumes:
+            - ./logstash/db-shipper/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+            - ./logstash/db-shipper/pipeline:/usr/share/logstash/pipeline
+            - ./logstash/db-shipper/sql:/usr/share/logstash/jdbc/
+        environment:
+            LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+        networks:
+            - *network
+        depends_on:
+            - db_es
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '30m'
+                max-file: '2'
+

@@ -1,0 +1,22 @@
+version: '2'
+services:
+    html_data:
+        image: busybox
+        container_name: 'web-data'        
+        volumes:
+            - /usr/share/nginx/html
+    git:
+        build: ""
+        container_name: 'web-data-fetch'                    
+        volumes_from: 
+            - html_data
+        restart: always
+    serv:
+        image: registry.cn-hangzhou.aliyuncs.com/kennylee/nginx:alpine-1.11
+        container_name: 'web-server'                    
+        ports:
+            - "8088:80"
+        volumes_from:
+            - html_data
+        restart: always
+

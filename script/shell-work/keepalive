@@ -1,0 +1,48 @@
+#!/bin/bash
+
+if [[ $# < 3 ]]; then 
+  echo "Example: $0 smtp.163.com 1 5"
+  exit
+fi 
+
+host=$1
+duration=$2
+count=$3
+
+con_fails=0
+fail=0
+total=0
+
+smtpserver=smtp.163.com
+smtpport=25
+user=13436881186@163.com
+password=mlspoghvmazimtsh
+fromemail=13436881186@163.com
+toemail=33493248@qq.com
+
+while true; do
+  echo -e "\r                                                                                                                       \c"
+  echo -e "\rTotal Fails:\033[36m $fail \033[0m Total Pings:\033[36m $total \033[0m Contineous Fails:\033[36m $con_fails \033[0m\c"
+
+  ((total++))
+
+  ping -c 1 $host 2> /dev/null | grep "64 bytes from" > /dev/null
+
+  if [[ $? = "1" ]]; then
+    ((con_fails++))
+    ((fail++))
+
+    if [[ $con_fails = "$count" ]]; then
+      echo -e "\n\nFail to connect to host $host at `date`."
+      echo "Sending email to $toemail..."
+      python ./sendmail.py -n $smtpserver -p $smtpport --user $user --passwd $password -f $fromemail -t $toemail -s "不能连接主机$host at `date`" -c "链接主机失败：$host at `date`" 
+      exit
+    fi
+  else
+    con_fails=0
+  fi 
+
+  sleep ${duration}s    
+done
+
+

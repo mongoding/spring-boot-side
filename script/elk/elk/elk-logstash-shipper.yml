@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+    logstash-shipper:
+        image: registry.cn-hangzhou.aliyuncs.com/kennylee/logstash:5.3.0
+        ports:
+            - 9500:9500/udp
+        volumes:
+            - ./logstash/shipper/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+            - ./logstash/shipper/pipeline:/usr/share/logstash/pipeline
+        environment:
+            LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+networks:
+    default:
+        external: 
+            name: elk_elk

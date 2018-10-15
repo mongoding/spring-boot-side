@@ -1,0 +1,25 @@
+version: '2'
+services:
+    web:
+        image: registry.cn-hangzhou.aliyuncs.com/kennylee/nginx:alpine-1.11.9
+        container_name: "nginx"
+        ports:
+            - "80:80"
+        volumes:
+            - ./data/html/:/usr/share/nginx/html
+            - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+            - ./nginx/conf/conf.d/:/etc/nginx/conf.d/
+        restart: always
+    ftp:
+        build: ftp
+        container_name: "gitbook-ftp"
+        ports:
+            - "21:21"
+            - "30000-30009:30000-30009"
+        volumes:
+            - ./data/html/:/usr/share/nginx/html
+            - ./data/pure-ftpd:/etc/pure-ftpd
+        restart: always
+        privileged: true
+        environment:
+            - TZ=Asia/Shanghai

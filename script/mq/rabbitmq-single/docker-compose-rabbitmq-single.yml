@@ -1,0 +1,22 @@
+version: '3'
+
+services: 
+  rabbitmq-single:
+    image: rabbitmq:3.6-management
+    container_name: rabbitmq-single
+    environment:
+      RABBITMQ_ERLANG_COOKIE: xbug.lol
+      RABBITMQ_DEFAULT_USER: root
+      RABBITMQ_DEFAULT_PASS: root
+    networks:
+      - xbug-network
+    domainname: xbug-network
+    hostname: rabbitmq-single
+    ports:
+      - 5671:5671
+      - 5672:5672
+      - 15672:15672
+
+networks:
+  xbug-network:
+    external: true  

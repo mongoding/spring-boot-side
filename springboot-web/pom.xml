@@ -13,7 +13,7 @@
 
     <parent>
         <groupId>org.spring.springboot</groupId>
-        <artifactId>spring-boot-side-parent</artifactId>
+        <artifactId>springboot-side-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../springboot-parent/pom.xml</relativePath>
     </parent>
@@ -63,13 +63,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.mortbay.jetty.alpn/alpn-boot -->
+
+
         <dependency>
-            <groupId>org.mortbay.jetty.alpn</groupId>
-            <artifactId>alpn-boot</artifactId>
-            <version>8.1.12.v20180117</version>
-            <scope>test</scope>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
         </dependency>
+
 
     </dependencies>
 

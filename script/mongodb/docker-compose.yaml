@@ -1,0 +1,12 @@
+version: '3.0'
+
+services:
+    mongodb:
+        image: mongodb
+        # restart: always
+        container_name: mongodb
+        ports:
+            - "27017:27017"
+
+
+

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#export SCRIPT_DIR=${SCRIPT_DIR:-`cd "$(dirname "$0")"; pwd`}
+#export WORKING_DIR=${WORKING_DIR:-`dirname "$SCRIPT_DIR"`}
+
+export WORKING_DIR=/home/robert/working
+
+export ANT_HOME=$WORKING_DIR/softwares/apache-ant-1.9.4
+export MAVEN_HOME=$WORKING_DIR/softwares/apache-maven-3.2.3
+export GRADLE_HOME=$WORKING_DIR/softwares/gradle-2.1
+
+export PATH=$PATH:$ANT_HOME/bin
+export PATH=$PATH:$MAVEN_HOME/bin
+export PATH=$PATH:$GRADLE_HOME/bin
+
+export PATH=$PATH:$WORKING_DIR/scripts
+
+source sj8
+export PATH=$PATH:/usr/local/mysql/bin
+export PATH=$PATH:$WORKING_DIR/softwares/eclipse
+export PATH=$PATH:$WORKING_DIR/softwares/weclipse
+export PATH=$PATH:$WORKING_DIR/softwares/adt-bundle-linux-x86-20131030/eclipse
+
+
