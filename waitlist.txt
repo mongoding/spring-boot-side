@@ -1,3 +1,0 @@
-今日目标：再次熟悉linux 常用命令
-        学习shell
-        运用docker,docker-compose
